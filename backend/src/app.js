@@ -6,5 +6,5 @@ const cors =require('cors');
 
 app.use(morgan('dev'));
 app.use(cors());
-app.use(require('./routes /patient'));
+app.use(require('./routes /patients'));
 module.exports=app;

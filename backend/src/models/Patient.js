@@ -11,4 +11,4 @@ const patientShema=new Schema({
 
 
 });
-model('Pacientes',patientShema);
+model.exports=model('Pacientes',patientShema);
