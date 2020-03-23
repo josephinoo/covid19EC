@@ -6,8 +6,8 @@ const Patient =require('../models/Patient');
 
 const faker=require('faker');
 router.get('/api/patient',async(req,res)=>{
-    const patients=await patients.find();
-    res.json(patients);
+    const patients=await  patients.find();
+    res.json('fff');
     
 
 
