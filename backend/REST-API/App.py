@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect,url_for,flash
 from flaskext.mysql import MySQL
 
 
@@ -11,7 +11,12 @@ mysql = MySQL()
 mysql.init_app(app)
 @app.route('/')
 def index():
-    return render_template('index.html')
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('SELECT*FROM pacientes')
+    data=cursor.fetchall()
+    conn.commit()
+    return render_template('index.html',pacientes=data)
 @app.route('/add_paciente' ,methods=['POST'])
 def add_paciente():
     if request.method=='POST':
@@ -26,13 +31,20 @@ def add_paciente():
         email=request.form['email']
         cursor.execute('INSERT INTO covid19.pacientes(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email) VALUES(%s,%s,%s,%s,%s,%s,%s)',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email))
         conn.commit()
-        return 'recived'
+        flash('Contacto Agregado')
+        return redirect(url_for('index'))
 
 @app.route('/editPaciente')
-def editPaciente():
+def get_paciente():
     return 'edit'
-@app.route('/delete')
-def deletePaciente():
-    return "eliminado "
+@app.route('/delete/<string:id>')
+def deletePaciente(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM pacientes WHERE pacienteNumber={0}".format(id))
+    conn.commit()
+    flash('Contacto Eliminado')
+    return redirect(url_for('index'))
 if __name__=='__main__':
+    app.secret_key = 'super secret key'
     app.run(port=3000, debug=True)

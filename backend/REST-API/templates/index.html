@@ -1,3 +1,10 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+   <p> {{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
 <form action="/add_paciente" method="POST" >
 
     <input type="text" name="nombresCompletos" placeholder="Nombre Completos" >
@@ -13,3 +20,35 @@
     </button>
 
 </form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombres Completos</td>
+            <td>Genero </td>
+            <td>Edad</td>
+            <td>Cedula</td>
+            <td>Direccion</td>
+            <td>Numero de contacto</td>
+            <td>Email</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+<tbody>
+        {% for paciente in pacientes %}
+        <tr> 
+            <td>{{paciente.1}}</td>
+            <td>{{paciente.2}}</td>
+            <td>{{paciente.3}}</td>
+            <td>{{paciente.4}}</td>
+            <td>{{paciente.5}}</td>
+            <td>{{paciente.6}}</td>
+            <td>{{paciente.7}}</td>
+            <td>
+               <a href="/editPaciente/{{paciente.0}}">Editar</a>
+               <a href="/delete/{{paciente.0}}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+</tbody>
+</table>
