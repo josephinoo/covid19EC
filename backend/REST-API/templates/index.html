@@ -1,54 +1,99 @@
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-   <p> {{ message }}</p>
-{% endfor %}
-{% endif %}
-{% endwith %}
-<form action="/add_paciente" method="POST" >
+{% extends "layout.html" %}
+{% block body %}
 
-    <input type="text" name="nombresCompletos" placeholder="Nombre Completos" >
-    <input type="text" name="genero" placeholder="Genero" >
-    <input type="text" name="edad" placeholder="Edad" >
-    <input type="text" name="cedula" placeholder="Cedula" >
-    <input type="text" name="direccion" placeholder="Direccion" >
-    <input type="text" name="contactNumber" placeholder="Numero de contacto" >
-    <input type="text" name="email" placeholder="Email" >
+<div class="row">
+    <div class="col-md-5">
+           
+     <div class="card card-body">
+        <form action="/add_paciente" method="POST" >
+            <div class="form-group">
+            <input type="text" name="nombresCompletos" placeholder="Nombre Completos" class="form-control" >
+            
+                
+            </div>
+            <div class="form-group">
+                <input type="text" name="genero" placeholder="Genero" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="edad" placeholder="Edad" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="cedula" placeholder="Cedula" class="form-control" >
+            </div>
+            <div class="form-group">
+                <input type="text" name="direccion" placeholder="Direccion" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="contactNumber" placeholder="Numero de contacto" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Email"class="form-control" >
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Guardar
+                </button>
+            </div>
+            
+            
+        
+          
+           
+            
+        
+          
+        
+        </form>
 
-    <button type="submit">
-        Guardar
-    </button>
+     </div>
+     {% with messages = get_flashed_messages() %}
+     {% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+         {{ message }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+         </button>
+     </div>
+     {% endfor %}
+     {% endif %}
+     {% endwith %}
+    </div>
+    <div class="col-md-7">
+        <table class="table table-striped table-bordered bg-white">
+            <thead>
+                <tr>
+                    <td>Nombres Completos</td>
+                    <td>Genero </td>
+                    <td>Edad</td>
+                    <td>Cedula</td>
+                    <td>Direccion</td>
+                    <td>Numero de contacto</td>
+                    <td>Email</td>
+                    <td>Operaciones</td>
+                </tr>
+            </thead>
+        <tbody>
+                {% for paciente in pacientes %}
+                <tr> 
+                    <td>{{paciente.1}}</td>
+                    <td>{{paciente.2}}</td>
+                    <td>{{paciente.3}}</td>
+                    <td>{{paciente.4}}</td>
+                    <td>{{paciente.5}}</td>
+                    <td>{{paciente.6}}</td>
+                    <td>{{paciente.7}}</td>
+                    <td>
+                       <a href="/editPaciente/{{paciente.0}} cal" class="btn btn-primary">Editar</a>
+                       <a href="/delete/{{paciente.0}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
 
-</form>
 
-<table>
-    <thead>
-        <tr>
-            <td>Nombres Completos</td>
-            <td>Genero </td>
-            <td>Edad</td>
-            <td>Cedula</td>
-            <td>Direccion</td>
-            <td>Numero de contacto</td>
-            <td>Email</td>
-            <td>Operaciones</td>
-        </tr>
-    </thead>
-<tbody>
-        {% for paciente in pacientes %}
-        <tr> 
-            <td>{{paciente.1}}</td>
-            <td>{{paciente.2}}</td>
-            <td>{{paciente.3}}</td>
-            <td>{{paciente.4}}</td>
-            <td>{{paciente.5}}</td>
-            <td>{{paciente.6}}</td>
-            <td>{{paciente.7}}</td>
-            <td>
-               <a href="/editPaciente/{{paciente.0}}">Editar</a>
-               <a href="/delete/{{paciente.0}}">Eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
-</tbody>
-</table>
+
+{% endblock %}

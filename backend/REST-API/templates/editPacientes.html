@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="/update/{{paciente.0}}" method="POST" >
+<div class="col-md-4 offset-md-4">
+    <div class="card card-body">
+
+        <div class="form-group">
+            <input type="text" name="nombresCompletos" placeholder="Nombre Completos" value={{paciente.1}} class="form-control" >
+            
+                
+            </div>
+            <div class="form-group">
+                <input type="text" name="genero" placeholder="Genero" value={{paciente.1}} class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="edad" placeholder="Edad" value={{paciente.1}} class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="cedula" placeholder="Cedula" value={{paciente.1}} class="form-control" >
+            </div>
+            <div class="form-group">
+                <input type="text" name="direccion" placeholder="Direccion" value={{paciente.1}} class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="contactNumber" placeholder="Numero de contacto" value={{paciente.1}} class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Email" value={{paciente.1}} class="form-control" >
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Guardar
+                </button>
+            </div>
+            
+        </div>
+    
+    </form>
+    </div>
+</div>
+{% endblock %}
