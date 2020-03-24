@@ -3,20 +3,20 @@ from flaskext.mysql import MySQL
 
 
 app=Flask(__name__)
-app.config['MYSQL_DATABASE_HOST']='root'
+app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']='root'
+app.config['MYSQL_DATABASE_PASSWORD']='rootroot'
 app.config['MYSQL_DATABASE_DB']='covid19'
-mysql = MySQL(app)
-con = mysql.connect()
-
+mysql = MySQL()
+mysql.init_app(app)
 @app.route('/')
 def index():
     return render_template('index.html')
 @app.route('/add_paciente' ,methods=['POST'])
 def add_paciente():
     if request.method=='POST':
-        cur = mysql.get_db().cursor()
+        conn = mysql.connect()
+        cursor = conn.cursor()
         nombresCompletos=request.form['nombresCompletos']
         edad=request.form['edad']
         genero=request.form['genero']
@@ -24,19 +24,9 @@ def add_paciente():
         direccion=request.form['direccion']
         contactNumber=request.form['contactNumber']
         email=request.form['email']
-
-        cur.execute('INSERT INTO pacientes(nombresCompletos,edad,genero,cedula,direccion,contactNumber,email) VALUES(%s,%s,%s,%s,%s,%s,%s)',
-        (nombresCompletos,edad,genero,cedula,direccion,contactNumber,email))
-        con.commit()
-        
-        print(nombresCompletos)
-        print(edad)
-        print(cedula)
-        print(direccion)
-        print(contactNumber)
-        print(email)
-        print(genero)
-        return 'recibido'
+        cursor.execute('INSERT INTO covid19.pacientes(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email) VALUES(%s,%s,%s,%s,%s,%s,%s)',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email))
+        conn.commit()
+        return 'recived'
 
 @app.route('/editPaciente')
 def editPaciente():
