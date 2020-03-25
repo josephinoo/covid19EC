@@ -110,9 +110,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Name   - josdavil@espol.edu.ec
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [Covid19EC](https://github.com/eljosephavila123/covid19EC/)
 
 
 
