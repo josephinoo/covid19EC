@@ -51,8 +51,8 @@
  
 
 
-Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador, esta conformado por una aplicacion movil que envia los datos de los paciente  como su tempertura , nivel de tos y otros sintomas .Entonces esos datos se enviaran a una bases en la que se tendra un registro de todo lo que ha reportado , para que los medicos puedan ver el cuadro medico actual de la personas
-### Aplicacion Movil
+Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador, está conformado por una aplicación móvil que envía los datos de los pacientes como su temperatura, nivel de tos y otros síntomas.Entonces esos datos se enviaran a una base de datosen la que se tendrá un registro de todo lo que ha reportado, para que los médicos puedan ver el cuadro medico actual de la personas.
+### Aplicación Móvil
 
 #### Ingreso 
 ```sh
@@ -65,6 +65,16 @@ El paciente debe ingresar los datos que fueron proporcionado por el sistema
  </p>
  
 #### Reporte Diario de Sintomas
+El paciente debe ingresar los síntomas que tiene en ese momento, para posterior análisis
+
+
++ Temperatura
++ Intesidad de Tos [Bajo, Medio ,Alto]
++ Tosidos por minuto
++ Dificultad de Respiracion 
++ Nivel del Dolor [Bajo, Medio ,Alto]
++ Otros Sintomas [Diarrea,Vomito]
+
 
 <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
@@ -73,6 +83,7 @@ El paciente debe ingresar los datos que fueron proporcionado por el sistema
  </p>
 
 #### Informe de los pacientes
+Muestra graficas de los reportes que ha realizado mediante la aplicación Móvil.
 
 <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
@@ -84,6 +95,7 @@ El paciente debe ingresar los datos que fueron proporcionado por el sistema
 ### Aplicacion Web
 
 #### Login
+Los médicos tendrá un usuario y clave de acceso para ingresar al sistema, para su posterior análisis.
 
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
@@ -92,7 +104,7 @@ El paciente debe ingresar los datos que fueron proporcionado por el sistema
  </p>
  
 #### Inicio
-
+Se muestra la página de inicio, los médicos podrán ingresar datos del paciente contagiado, se guardara en la base de datos, luego se lo proporciona una clave de acceso para el paciente, para poder ingresar a al aplicación móvil.
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
     <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/Crud.png" alt="Logo" width="500" height="300">
