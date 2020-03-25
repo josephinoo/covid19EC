@@ -110,10 +110,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Joseph Avila Alvarez   - josdavil@espol.edu.ec 
-Carlos Loja Guevara
-Winter Alava
+>
++ Joseph Avila Alvarez   - josdavil@espol.edu.ec 
++ Carlos Loja Guevara   - @espol.edu.ec   
++ Winter Alava   - @espol.edu.ec 
 
+
+
+ 
 Project Link: [Covid19EC](https://github.com/eljosephavila123/covid19EC/)
 
 
