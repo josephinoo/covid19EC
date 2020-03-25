@@ -46,23 +46,51 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Acerca del proyecto
 
  
 
 
 Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador, esta conformado por una aplicacion movil que envia los datos de los paciente  como su tempertura , nivel de tos y otros sintomas .Entonces esos datos se enviaran a una bases en la que se tendra un registro de todo lo que ha reportado , para que los medicos puedan ver el cuadro medico actual de la personas
+### Aplicacion Movil
 <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
     <img src="https://raw.githubusercontent.com/eljosephavila123/covid19EC/master/prototipo/971e02e8-e96f-4072-be10-679c85ff6a65.jpeg" alt="Logo" width="300" height="500">
   </a>
  </p>
 
-### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+### Aplicacion Web
+
+#### Login
+
+ <p align="center">
+  <a href="hhttps://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/login%20Web.png" alt="Logo" width="800" height="500">
+  </a>
+ </p>
+ 
+#### Inicio
+
+ <p align="center">
+  <a href="hhttps://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/Crud.png" alt="Logo" width="800" height="500">
+  </a>
+ </p>
+ 
+#### Graficas por Temperatura
+
+ <p align="center">
+  <a href="hhttps://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/grafica%20.png" alt="Logo" width="800" height="500">
+  </a>
+ </p>
+ 
+### Realizado con
+
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Chart.js](https://www.chartjs.org/)
+* [Android Studio Java ](https://developer.android.com/studio)
 
 
 
@@ -112,9 +140,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 >
+### Mentores del Proyecto
++ Mg.Efrain  Teran Calle - @espol.edu.ec 
++ Dr.Christian Tutiven Galvez cjtutive@espol.edu.ec
+### Desarrolladores Junior
 + Joseph Avila Alvarez   - josdavil@espol.edu.ec 
-+ Carlos Loja Guevara   - @espol.edu.ec   
-+ Winter Alava   - @espol.edu.ec 
++ Carlos Loja Guevara   - caloja@espol.edu.ec  
++ Winter Alava Intriago  - walava@espol.edu.ec 
+
+
 
 
 
