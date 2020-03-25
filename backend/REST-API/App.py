@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for,flash
+from flask import Flask,render_template,request,redirect,url_for,flash,session
 from flaskext.mysql import MySQL
 
 
@@ -10,6 +10,17 @@ app.config['MYSQL_DATABASE_DB']='covid19'
 mysql = MySQL()
 mysql.init_app(app)
 @app.route('/')
+def login():
+    return render_template('login.html')
+@app.route('/ingresar',methods=['POST'])
+def ingresar():
+    if request.method=='POST':
+        return redirect(url_for('index'))
+
+
+
+   
+@app.route('/inicio')
 def index():
     conn = mysql.connect()
     cursor = conn.cursor()
