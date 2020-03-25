@@ -10,3 +10,11 @@ CREATE  TABLE pacientes (
   PRIMARY KEY (paciente_number)) ;
 
 
+
+
+CREATE  TABLE  doctores (
+  doctorNumber INT  auto_increment ,
+  usuario VARCHAR(150) NOT NULL ,
+  clave VARCHAR(255)NOT NULL,
+  PRIMARY KEY (doctorNumber)) ;
+  

@@ -1,12 +1,17 @@
-from flask import Flask,render_template,request,redirect,url_for,flash,session
+from flask import Flask,render_template,request,redirect,url_for,flash,session,Response
 from flaskext.mysql import MySQL
-
+import matplotlib.pyplot as plt
+import numpy as np
+import io
+import random
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 
 app=Flask(__name__)
-app.config['MYSQL_DATABASE_HOST']='localhost'
-app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']='rootroot'
-app.config['MYSQL_DATABASE_DB']='covid19'
+app.config['MYSQL_DATABASE_HOST']='db4free.net'
+app.config['MYSQL_DATABASE_USER']='josdavil123'
+app.config['MYSQL_DATABASE_PASSWORD']='covidjoseph'
+app.config['MYSQL_DATABASE_DB']='covid19app'
 mysql = MySQL()
 mysql.init_app(app)
 @app.route('/')
@@ -16,8 +21,6 @@ def login():
 def ingresar():
     if request.method=='POST':
         return redirect(url_for('index'))
-
-
 
    
 @app.route('/inicio')
@@ -40,7 +43,7 @@ def add_paciente():
         direccion=request.form['direccion']
         contactNumber=request.form['contactNumber']
         email=request.form['email']
-        cursor.execute('INSERT INTO covid19.pacientes(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email) VALUES(%s,%s,%s,%s,%s,%s,%s)',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email))
+        cursor.execute('INSERT INTO covid19app.pacientes(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email) VALUES(%s,%s,%s,%s,%s,%s,%s)',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email))
         conn.commit()
         flash('Paciente Agregado')
         return redirect(url_for('index'))
@@ -48,11 +51,11 @@ def add_paciente():
 def get_paciente(id):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM pacientes WHERE pacienteNumber=%s",(id))
+    cursor.execute("SELECT * FROM pacientes WHERE paciente_number=%s",(id))
     date=cursor.fetchall()
-    print(date)
     conn.commit()
     return render_template('editPacientes.html',paciente=date[0])
+
 @app.route('/update/<id>',methods=['POST'])
 def update_paciente(id):
     if request.method=='POST':
@@ -74,7 +77,7 @@ def update_paciente(id):
             direccion=%s,
             contactNumber=%s,
             email=%s
-        WHERE pacienteNumber=%s
+        WHERE =%s
         ''',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email,id))
         conn.commit()
         flash('Paciente Cambiado')
@@ -83,7 +86,24 @@ def update_paciente(id):
 
 
 
+@app.route('/analisis/<id>',methods=['GET'])
+def analisis(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM diagnostico WHERE cedula=%s",(id))
+    date=cursor.fetchall()
+    conn.commit()
+    temperaturaReportada=[]
+    dateTemperatura= [list(row) for row in date]
+    for temperatura in dateTemperatura:
+        temperaturaReportada.append(int(temperatura[-1]))
+    
+    legend = 'Monitoreo'
+    labels = [str(row) for row in range(len(date))]
+    values = temperaturaReportada
 
+    
+    return render_template('analisis.html',paciente=date[0],values=values, labels=labels, legend=legend)
 
 @app.route('/delete/<id>' )
 def deletePaciente(id):
