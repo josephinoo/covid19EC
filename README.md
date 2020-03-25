@@ -154,7 +154,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 >
 ### Mentores del Proyecto
-+ Mg.Efrain  Teran Calle - @espol.edu.ec 
++ Mg.Efrain  Teran Calle - eaterac@espol.edu.ec
 + Dr.Christian Tutiven Galvez cjtutive@espol.edu.ec
 ### Desarrolladores Junior
 + Joseph Avila Alvarez   - josdavil@espol.edu.ec 
