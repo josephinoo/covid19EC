@@ -53,11 +53,33 @@
 
 Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador, esta conformado por una aplicacion movil que envia los datos de los paciente  como su tempertura , nivel de tos y otros sintomas .Entonces esos datos se enviaran a una bases en la que se tendra un registro de todo lo que ha reportado , para que los medicos puedan ver el cuadro medico actual de la personas
 ### Aplicacion Movil
+
+#### Ingreso 
+```sh
+El paciente debe ingresar los datos que fueron proporcionado por el sistema
+```
 <p align="center">
-  <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://raw.githubusercontent.com/eljosephavila123/covid19EC/master/prototipo/971e02e8-e96f-4072-be10-679c85ff6a65.jpeg" alt="Logo" width="300" height="500">
+  <a href="https://github.com/eljosephavila123/covid19EC">
+    <img src="https://raw.githubusercontent.com/eljosephavila123/covid19EC/master/prototipo/971e02e8-e96f-4072-be10-679c85ff6a65.jpeg" alt="Logo" width="250" height="400">
   </a>
  </p>
+ 
+#### Reporte Diario de Sintomas
+
+<p align="center">
+  <a href="hhttps://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/6d56bb4c-f306-4041-b056-ef395fd01d93.jpeg" alt="Logo" width="250" height="500">
+  </a>
+ </p>
+
+#### Informe de los pacientes
+
+<p align="center">
+  <a href="hhttps://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/8c01e01d-f5c1-406e-92ba-670bf4697c8a.jpeg" alt="Logo" width="250" height="500">
+  </a>
+ </p>
+
 
 ### Aplicacion Web
 
@@ -65,7 +87,7 @@ Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador
 
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/login%20Web.png" alt="Logo" width="800" height="500">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/login%20Web.png" alt="Logo" width="500" height="300">
   </a>
  </p>
  
@@ -73,7 +95,7 @@ Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador
 
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/Crud.png" alt="Logo" width="800" height="500">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/Crud.png" alt="Logo" width="500" height="300">
   </a>
  </p>
  
@@ -81,7 +103,7 @@ Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador
 
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/grafica%20.png" alt="Logo" width="800" height="500">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/grafica%20.png" alt="Logo" width="500" height="300">
   </a>
  </p>
  
@@ -95,34 +117,13 @@ Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Funcionamiento
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
 
-### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+
 
 
 
@@ -137,7 +138,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Contactos
 
 >
 ### Mentores del Proyecto
