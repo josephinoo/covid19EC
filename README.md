@@ -110,7 +110,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name   - josdavil@espol.edu.ec
+Joseph Avila Alvarez   - josdavil@espol.edu.ec 
+Carlos Loja Guevara
+Winter Alava
 
 Project Link: [Covid19EC](https://github.com/eljosephavila123/covid19EC/)
 
