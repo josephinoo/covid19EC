@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for,flash,session,Response
+from flask import Flask,render_template,request,redirect,url_for,flash,session,Response,jsonify
 from flaskext.mysql import MySQL
 import matplotlib.pyplot as plt
 import numpy as np
@@ -47,6 +47,7 @@ def add_paciente():
         conn.commit()
         flash('Paciente Agregado')
         return redirect(url_for('index'))
+
 @app.route('/editPaciente/<id>')
 def get_paciente(id):
     conn = mysql.connect()
@@ -113,6 +114,21 @@ def deletePaciente(id):
     conn.commit()
     flash('Contacto Eliminado')
     return redirect(url_for('index'))
+
+@app.route("/prueba",methods=['POST','GET'])
+def get_text_prediction():
+ 
+    json = request.get_json()
+    print(json)
+    if len(json['text']) == 0:
+        return jsonify({'error': 'invalid input'})
+
+    return jsonify({'you sent this': json['text']})
+
+      
+
+
+
 if __name__=='__main__':
     app.secret_key = 'super secret key'
     app.run(host='0.0.0.0',port=3000, debug=True)
