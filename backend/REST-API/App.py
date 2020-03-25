@@ -77,7 +77,7 @@ def update_paciente(id):
             direccion=%s,
             contactNumber=%s,
             email=%s
-        WHERE =%s
+        WHERE paciente_number=%s
         ''',(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email,id))
         conn.commit()
         flash('Paciente Cambiado')
@@ -109,10 +109,10 @@ def analisis(id):
 def deletePaciente(id):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM pacientes WHERE pacienteNumber=%s",(id))
+    cursor.execute("DELETE FROM pacientes WHERE paciente_number=%s",(id))
     conn.commit()
     flash('Contacto Eliminado')
     return redirect(url_for('index'))
 if __name__=='__main__':
     app.secret_key = 'super secret key'
-    app.run(port=3000, debug=True)
+    app.run(host='0.0.0.0',port=3000, debug=True)
