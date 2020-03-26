@@ -1,56 +1,28 @@
 {% extends "layout.html" %}
 {% block body %}
 <!-- import plugin script -->
-<script src='static/Chart.min.js'></script>
+
 <form action="/anilisis/{{paciente.4}}" method="POST" >
 
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 
-     <!-- Charlist-->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
- 
-     <!-- Bootstraps Java Scipts Links -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
  
  
+  <h1>Paciente:{{nombre}}</h1>
  
-     <!-- JQuery links  -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
- 
-   </head>
+   
  
    <body>
+     <canvas id="MyChart" width="100" height="100">  </canvas>
+     <canvas id="line-chart" width="800" height="450"></canvas>
+   </body>
  
  
-   <div class="ct-chart ct-perfect-fourth" style="position: relative; height:40vh; width:80vw"></div>
+
  
    <script>
-     class MyCharts{
- 
-       constructor(xData, YData)
-       {
-         this.XData = XData;
-         this.YData = YData;
-       }
- 
-       createGraph()
-       {
-         var data =
-                 {
-                   labels: this.XData,
-                   series:[
-                           this.YData
-                   ]
-                 }
-         new Chartist.Line('.ct-chart', data);
-       }
-     }
- 
-   var XData= [{% for item in labels %}
+     var XData= [{% for item in labels %}
                    "{{item}}",
                   {% endfor %}]
 ;
@@ -58,9 +30,29 @@
                       {{item}},
                     {% endfor %}]
 ;
+      
+    new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: XData,
+    datasets: [{ 
+        data: YData,
+        label: "Temperatura ",
+        borderColor: "#3e95cd",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Temperatura'
+    }
+  }
+});
+ 
+
     
-    var obj = new MyCharts(XData, YData);
-    obj.createGraph();
  
     
  
