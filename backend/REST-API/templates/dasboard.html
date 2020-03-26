@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+
+
+<body>
+    <center>
+        <h1>Estados totales de los pacientes</h1>
+        <h1>Total de casos: {{casos}}</h1>
+    </center>
+    
+    <canvas id="bar-chart" width="800" height="450"></canvas>
+
+    
+    
+</body>
+<script>
+
+var XData= [{% for item in labels %}
+                   "{{item}}",
+                  {% endfor %}]
+;
+     var YData = [{% for item in values %}
+                      {{item}},
+                    {% endfor %}]
+;
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels:XData,
+      datasets: [
+        {
+          label: "Personas",
+          backgroundColor: ["#69D800", "#FFE800","#EC0F0F"],
+          data: YData
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Estado de los Pacientes'
+      }
+    }
+});
+</script>
+{% endblock %}

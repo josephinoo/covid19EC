@@ -4,7 +4,7 @@ import numpy as np
 import io
 import random
 from firebase import firebase
-
+import time
 firebase=firebase.FirebaseApplication("https://covid19ec-2d508.firebaseio.com/",None)
 def addPacienteFireabase(nombre,genero,edad,cedula,direccion,numeroContacto,email):
     data={
@@ -104,7 +104,6 @@ def update_paciente(id):
 @app.route('/analisis/<id>',methods=['GET'])
 def analisis(id):
     resultGrafica=firebase.get("/diganostico/",'')
-    print(id)
     dataGrafica=[]
     for idr,valores in resultGrafica.items():
         dataGrafica.append((valores["cedula"],valores["tos"],valores["tempertura"]))
@@ -122,22 +121,57 @@ def analisis(id):
     result=firebase.get("pacientes",'')
     data=[]
     for idr,valores in result.items() :
-        data.append((idr,valores['nombre'],valores['genero'],valores['edad'],valores['cedula'],valores['direccion'],valores['numeroContacto'],valores['email']))
+        data.append((idr,valores['nombre'],valores['genero'],valores['edad'],valores['cedula'],valores['direccion'],valores['numeroContacto'],valores['email'],valores['estado']))
     date =[]
     for idData in data:
         if id==idData[4]:
             date.append(idData)
+    recetas=firebase.get("/recetas/",'')
     
-    return render_template('analisis.html',paciente=id,values=values, labels=labels, legend=legend,nombre=date[0][1])
+    dataRecetas=[]
+    for idr,valores in recetas.items():
+        dataRecetas.append((valores["cedula"],valores["doctor"],valores["recetas"]))
+    datosRecetasId=[]
+    for clave in dataRecetas:
+        if clave[0]==id:
+            datosRecetasId.append(clave)
+    """La fecha y la hora actual, de la que se va recomendar"""
+    hora=time.strftime("%H:%M:%S") #Formato de 24 horas
+    fecha=time.strftime("%d/%m/%y")
+
+    
+    return render_template('analisis.html',paciente=id,values=values, labels=labels, 
+    legend=legend,nombre=date[0][1],estado=date[0][-1],recetas=datosRecetasId,
+    fecha=fecha,hora=hora)
 
 @app.route('/delete/<id>' )
 def deletePaciente(id):
-  
     flash('Contacto Eliminado')
     firebase.delete("/pacientes/",id)
     return redirect(url_for('index'))
-
-
+@app.route('/recomendar/<id>')
+def recomendar(id):
+    returnredirect(url_for('analisi/'+str(id)))
+@app.route('/dashboard')
+def dashboard():
+    result=firebase.get("pacientes",'')
+    normal=0
+    medio=0
+    critico=0
+    data=[]
+    for idr,valores in result.items() :
+        data.append((idr,valores['nombre'],valores['genero'],valores['edad'],valores['cedula'],valores['direccion'],valores['numeroContacto'],valores['email'],valores['estado']))
+    for estados in data:
+        if estados[-1]=="normal":
+            normal+=1
+        if estados[-1]=="critica":
+            critico+=1
+        if estados[-1]=="medio":
+            medio+=1
+    
+    labels=["Normal","Medio","Critico"]
+    values=[normal,medio,critico] 
+    return  render_template('dasboard.html',values=values, labels=labels,casos=len(data))
 if __name__=='__main__':
     app.secret_key = 'super secret key'
     app.run(host='0.0.0.0',port=3000, debug=True)
