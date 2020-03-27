@@ -2,10 +2,9 @@
 {% block body %}
 <!-- import plugin script -->
 
-<form action="/anilisis/{{paciente.4}}" method="POST" >
 
      
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 
  
  
@@ -68,37 +67,32 @@
    <center>
     <h1>Historial de Recomendaciones</h1>
   </center>
+
   <div class="row">
     <div class="col-md-5">
            
      <div class="card card-body">
-        <form action="/add_paciente" method="POST" >
+        <form action="/recomendar/{{paciente}}" method="POST" >
             <div class="form-group">
-            <input type="text" name="nombreDoctor" placeholder="Nombre del Doctor" class="form-control" >
+            <input type="text"  placeholder="Nombre del Doctor"  name="doctor" class="form-control" />
             
-                
             </div>
             <div class="form-group">
-                <input type="text" name="recomendacion" placeholder="Recomendaciones" class="form-control">
+                <input type="text" placeholder="Recomendaciones"  name="recomendar" class="form-control" />
             </div>
+            
             
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">
                     Recomendar
                 </button>
-            </div>
-            
-            
-        
-          
-          </div>
-            
-        
-          
-        
+            </div> 
         </form>
 
      </div>
+    
+  </div>
+
   <div class="col-md-7">
     <table class="table table-striped table-bordered bg-white">
         <thead>
@@ -127,14 +121,6 @@
    </body>
 
 
-        
-               
-            
-            
-            
-       
-    
-    </form>
     </div>
 </div>
 {% endblock %}
