@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Sintomas:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <EditText
+        android:id="@+id/ritmoid"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="#FF4E4E"
+        android:ems="10"
+        android:hint="Latidos por minuto"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#c0d6e4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+    <CheckBox
+        android:id="@+id/dolorcheckid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="64dp"
+        android:buttonTint="#F44336"
+        android:text="Dolor de garganta"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="@+id/dificultadcheckid"
+        app:layout_constraintTop_toBottomOf="@+id/dificultadcheckid" />
+
+    <CheckBox
+        android:id="@+id/toscheckid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="32dp"
+        android:buttonTint="#F44336"
+        android:text="Tos"
+        android:textColor="#3F51B5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <SeekBar
+        android:id="@+id/dolorid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="2"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintStart_toStartOf="@+id/dolorcheckid"
+        app:layout_constraintTop_toBottomOf="@+id/dolorcheckid" />
+
+    <SeekBar
+        android:id="@+id/intensidadtosid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="2"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintStart_toStartOf="@+id/toscheckid"
+        app:layout_constraintTop_toBottomOf="@+id/toscheckid" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
+        android:text="HOLA:"
+        android:textColor="#19608d"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/usernameid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="monospace"
+        android:text="UserName"
+        android:textColor="#19608d"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="350dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameid" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="45dp"
+        android:text="Tempetatura:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <SeekBar
+        android:id="@+id/dificultadid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="2"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintStart_toStartOf="@+id/dificultadcheckid"
+        app:layout_constraintTop_toBottomOf="@+id/dificultadcheckid" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Ritmo cardiaco:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+
+    <EditText
+        android:id="@+id/temperaturaid"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="#FF4E4E"
+        android:ems="10"
+        android:hint="Grados Centígrados"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#c0d6e4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <CheckBox
+        android:id="@+id/dificultadcheckid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="96dp"
+        android:buttonTint="#F44336"
+        android:text="Dificultad para respirar"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/toscheckid"
+        app:layout_constraintTop_toBottomOf="@+id/toscheckid" />
+
+    <TextView
+        android:id="@+id/TVtosid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/intensidadtosid"
+        app:layout_constraintTop_toTopOf="@+id/intensidadtosid" />
+
+    <TextView
+        android:id="@+id/TVdificultadid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/dificultadid"
+        app:layout_constraintTop_toTopOf="@+id/dificultadid" />
+
+    <TextView
+        android:id="@+id/TVdolorid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/dolorid"
+        app:layout_constraintTop_toTopOf="@+id/dolorid" />
+
+    <Button
+        android:id="@+id/enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/save_button"
+        android:onClick="enviar"
+        android:text="enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

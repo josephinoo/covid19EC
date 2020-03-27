@@ -1,0 +1,4 @@
+#Thu Mar 26 10:36:54 COT 2020
+base.0=C\:\\Users\\CLOJA\\Documents\\GitHub\\covid19EC\\prevcovidapp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
