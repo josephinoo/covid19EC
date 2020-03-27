@@ -32,18 +32,21 @@ new Chart(document.getElementById("bar-chart"), {
       labels:XData,
       datasets: [
         {
-          label: "Personas",
+          title:["Normal","Medio","Critico"],
           backgroundColor: ["#69D800", "#FFE800","#EC0F0F"],
           data: YData
         }
       ]
     },
     options: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: 'Estado de los Pacientes'
-      }
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+  
     }
 });
 </script>
