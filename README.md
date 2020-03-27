@@ -115,7 +115,7 @@ Se muestra la página de inicio, los médicos podrán ingresar datos del pacient
 
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/grafica%20.png" alt="Logo" width="500" height="300">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/Web.gif" alt="Logo" width="500" height="300">
   </a>
  </p>
  
@@ -130,7 +130,7 @@ Se muestra la página de inicio, los médicos podrán ingresar datos del pacient
 
 <!-- GETTING STARTED -->
 ## Funcionamiento
-
+En esta sección se presentara el funcionamiento de la  aplicación móvil y web ,se va redireccionar  a un video de YouTube
 
 
 
