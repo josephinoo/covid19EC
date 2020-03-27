@@ -89,6 +89,7 @@ Muestra graficas de los reportes que ha realizado mediante la aplicación Móvil
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
     <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/8c01e01d-f5c1-406e-92ba-670bf4697c8a.jpeg" alt="Logo" width="250" height="500">
   </a>
+  
  </p>
 
 
@@ -107,7 +108,7 @@ Los médicos tendrá un usuario y clave de acceso para ingresar al sistema, para
 Se muestra la página de inicio, los médicos podrán ingresar datos del paciente contagiado, se guardara en la base de datos, luego se lo proporciona una clave de acceso para el paciente, para poder ingresar a al aplicación móvil.
  <p align="center">
   <a href="hhttps://github.com/eljosephavila123/covid19EC">
-    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/Crud.png" alt="Logo" width="500" height="300">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/Web.gif" alt="Logo" width="500" height="300">
   </a>
  </p>
  
@@ -130,11 +131,17 @@ Se muestra la página de inicio, los médicos podrán ingresar datos del pacient
 
 <!-- GETTING STARTED -->
 ## Funcionamiento
+En esta sección se presentara el funcionamiento de la  aplicación móvil y web ,se va redireccionar  a un video de YouTube
 
 
 
-
-
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=vIJJLXPvGEU&feature=youtu.be">
+    <img src="https://i9.ytimg.com/vi/vIJJLXPvGEU/mq2.jpg?sqp=CKza-PMF&rs=AOn4CLBOzIJzxK6QJCoZ25dRzg2Er0aFaA" alt="Logo" width="200" height="100">
+     Link:https://www.youtube.com/watch?v=vIJJLXPvGEU&feature=youtu.be
+  </a>
+ </p>
+ 
 
 
 
