@@ -14,7 +14,8 @@ def addPacienteFireabase(nombre,genero,edad,cedula,direccion,numeroContacto,emai
         "cedula" : cedula,
         "direccion":direccion,
         "numeroContacto":numeroContacto,
-        "email":email}
+        "email":email,
+        "estado":"normal"}
     return data
 
 app=Flask(__name__)
@@ -31,13 +32,13 @@ def ingresar():
 @app.route('/inicio')
 def index():
   
-
     result=firebase.get("pacientes",'')
     data=[]
     for id,valores in result.items():
         data.append((id,valores['nombre'],valores['genero'],valores['edad'],valores['cedula'],valores['direccion'],valores['numeroContacto'],valores['email']))
           
     return render_template('index.html',pacientes=data)
+
 @app.route('/add_paciente' ,methods=['POST'])
 def add_paciente():
     if request.method=='POST':
@@ -48,7 +49,6 @@ def add_paciente():
         direccion=request.form['direccion']
         contactNumber=request.form['contactNumber']
         email=request.form['email']
-       
         data= addPacienteFireabase(nombresCompletos,genero,edad,cedula,direccion,contactNumber,email)
         firebase.post("pacientes",data)
         flash('Paciente Agregado')
@@ -106,11 +106,15 @@ def analisis(id):
     resultGrafica=firebase.get("/diganostico/",'')
     dataGrafica=[]
     for idr,valores in resultGrafica.items():
-        dataGrafica.append((valores["cedula"],valores["tos"],valores["tempertura"]))
+        dataGrafica.append((valores["cedula"],valores["estadoDi"],valores["estadoDolor"],
+        valores["estadoTos"],valores["hasDi"],valores["hasDolor"],valores["hasTos"],
+        valores["ritmoCardiaco"],valores["temperatura"]))
+    
     datosTemperatura=[]
     for clave in dataGrafica:
         if clave[0]==id:
             datosTemperatura.append(clave)
+    
     temperaturaReportada =[]
     dateTemperatura= [list(row) for row in datosTemperatura]
     for temperatura in dateTemperatura:
@@ -127,31 +131,50 @@ def analisis(id):
         if id==idData[4]:
             date.append(idData)
     recetas=firebase.get("/recetas/",'')
-    
     dataRecetas=[]
     for idr,valores in recetas.items():
-        dataRecetas.append((valores["cedula"],valores["doctor"],valores["recetas"]))
+        dataRecetas.append((valores["id"],valores["doctor"],valores["recetas"],valores["fecha"],valores["hora"]))
     datosRecetasId=[]
     for clave in dataRecetas:
         if clave[0]==id:
             datosRecetasId.append(clave)
-    """La fecha y la hora actual, de la que se va recomendar"""
-    hora=time.strftime("%H:%M:%S") #Formato de 24 horas
-    fecha=time.strftime("%d/%m/%y")
 
-    
+
+
     return render_template('analisis.html',paciente=id,values=values, labels=labels, 
-    legend=legend,nombre=date[0][1],estado=date[0][-1],recetas=datosRecetasId,
-    fecha=fecha,hora=hora)
+    legend=legend,nombre=date[0][1],estado=date[0][-1],recetas=datosRecetasId)
 
 @app.route('/delete/<id>' )
 def deletePaciente(id):
     flash('Contacto Eliminado')
     firebase.delete("/pacientes/",id)
     return redirect(url_for('index'))
-@app.route('/recomendar/<id>')
+
+@app.route('/recomendar/<id>',methods=['POST'])
 def recomendar(id):
-    returnredirect(url_for('analisi/'+str(id)))
+    if request.method=='POST':
+    
+        nombreDoctor=request.form["doctor"]
+        recomendar=request.form['recomendar']
+     
+        hora=time.strftime("%H:%M:%S") #Formato de 24 horas
+        fecha=time.strftime("%d/%m/%y")
+        data={
+            "doctor":nombreDoctor,
+            "id":id,
+            "hora":hora,
+            "fecha":fecha,
+            "recetas":recomendar
+
+       }
+        firebase.post("recetas",data)
+        return redirect(url_for('analisis',id=id))
+        
+        
+    
+
+
+    
 @app.route('/dashboard')
 def dashboard():
     result=firebase.get("pacientes",'')
@@ -168,10 +191,11 @@ def dashboard():
             critico+=1
         if estados[-1]=="medio":
             medio+=1
-    
     labels=["Normal","Medio","Critico"]
     values=[normal,medio,critico] 
     return  render_template('dasboard.html',values=values, labels=labels,casos=len(data))
+
+
 if __name__=='__main__':
     app.secret_key = 'super secret key'
     app.run(host='0.0.0.0',port=3000, debug=True)
