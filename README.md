@@ -52,6 +52,13 @@
 
 
 Proyecto para el monitoreo de los pacientes contagiados en COVID19 en el Ecuador, está conformado por una aplicación móvil que envía los datos de los pacientes como su temperatura, nivel de tos y otros síntomas.Entonces esos datos se enviaran a una base de datosen la que se tendrá un registro de todo lo que ha reportado, para que los médicos puedan ver el cuadro medico actual de la personas.
+## Bases de Datos
+<p align="center">
+  <a href="https://github.com/eljosephavila123/covid19EC">
+    <img src="https://github.com/eljosephavila123/covid19EC/blob/master/prototipo/base.png" alt="Logo" width="290" height="400">
+  </a>
+ </p>
+
 ### Aplicación Móvil
 
 #### Ingreso 
@@ -133,17 +140,27 @@ Se muestra la página de inicio, los médicos podrán ingresar datos del pacient
 ## Funcionamiento
 En esta sección se presentara el funcionamiento de la  aplicación móvil y web ,se va redireccionar  a un video de YouTube
 
-
-
+```sh
+Para ver los videos , lo pueden hacer dando clic sobre la imagen
+```
+#### App movil
 <p align="center">
   <a href="https://www.youtube.com/watch?v=vIJJLXPvGEU&feature=youtu.be">
     <img src="https://i9.ytimg.com/vi/vIJJLXPvGEU/mq2.jpg?sqp=CKza-PMF&rs=AOn4CLBOzIJzxK6QJCoZ25dRzg2Er0aFaA" alt="Logo" width="200" height="100">
-     Link:https://www.youtube.com/watch?v=vIJJLXPvGEU&feature=youtu.be
+     
   </a>
  </p>
  
 
 
+#### Web
+<p align="center">
+  <a href="https://youtu.be/AHAdI4GSfUw">
+    <img src="https://i9.ytimg.com/vi/AHAdI4GSfUw/mq2.jpg?sqp=CPT4-PMF&rs=AOn4CLA3M_KZ385oTdyO-cZ5BjxIdaemoA" alt="Logo" width="200" height="100">
+    
+  </a>
+ </p>
+ 
 
 
 
