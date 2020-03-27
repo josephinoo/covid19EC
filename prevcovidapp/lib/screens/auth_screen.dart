@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:prevcovidapp/providers/auth.dart';
 import 'package:prevcovidapp/screens/signup_screen.dart';
@@ -96,26 +95,6 @@ class _AuthCardState extends State<AuthCard> {
               FlatButton(
                 onPressed: _submit,
                 child: Text("LOGIN"),
-              ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Text("Don't have an Acount?"),
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(SignUpScreen.routeName);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('REGISTER NOW '),
-                          Icon(Icons.send)
-                        ],
-                      ),
-                    )
-                  ],
-                ),
               ),
             ],
           ),

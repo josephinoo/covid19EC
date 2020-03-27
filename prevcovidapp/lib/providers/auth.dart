@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import '../providers/user.dart';
 class Auth with ChangeNotifier {
   String _token;
   DateTime _expiryDate;
   String _userId;
   Timer _authTimer;
-
   bool get isAuth {
     return _token != null;
   }
-
+  String get userId{
+    return _userId;
+  }
   String get token {
     if (_expiryDate != null &&
         _expiryDate.isAfter(DateTime.now()) &&
@@ -22,36 +24,10 @@ class Auth with ChangeNotifier {
     }
     return null;
   }
-///El metodo se encarga de registrar al usuario
-  Future<void> signup(String email, String password) async {
-   const url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDNMfwcvbn04MG48MUfrW9p6y6YzRL9N6M';
-    try {
-      final response = await http.post(
-        url,
-        body: json.encode({
-          'email': email,
-          'password': password,
-          'returnSecureToken': true,
-        }),
-      );
-      final responseData = json.decode(response.body);
-      if (responseData['error'] != null) {
-        throw Exception(responseData['error']['message']);
-      }
-      _token = responseData['idToken'];
-      _userId = responseData['localId'];
-      _expiryDate = DateTime.now()
-          .add(Duration(seconds: int.parse(responseData['expiresIn'])));
-      notifyListeners();
-    } catch (error) {
-      throw error;
-    }
-  }
 ///El metdoo se encarga de loggear al usuario
   Future<void> signin(String email, String password) async {
    const url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDNMfwcvbn04MG48MUfrW9p6y6YzRL9N6M';
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBgTP44uTT3ILzjRG-yknW_LHXUeUjZ6Hg';
     
     try {
       print("object");
@@ -63,9 +39,9 @@ class Auth with ChangeNotifier {
           'returnSecureToken': 'true',
         },
       );
-      print(email);
-      print(password);
-      print(response.statusCode);
+      // print(email);
+      // print(password);
+      // print(response.statusCode);
       final responseData = json.decode(response.body);
       if (responseData['error'] != null) {
         
@@ -85,6 +61,7 @@ class Auth with ChangeNotifier {
         'exiryDate': _expiryDate.toIso8601String(),
       });
       prefs.setString("userData", userData);
+      //print(userData+"    SignIn");
     } catch (error) {
       print(error);
       throw error;
@@ -118,11 +95,15 @@ class Auth with ChangeNotifier {
 
   Future<bool> tryAutoLogin() async {
     final prefs = await SharedPreferences.getInstance();
-    if (!prefs.containsKey('userData')) {
+  // print(prefs.get("userData")+"   tryAutoLogin");
+    if (!prefs.containsKey("userData")) {
       return false;
     }
+       // print(" valor de verdad");
+
     final extractedUserData = json.decode(prefs.getString("userData"));
-    final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
+    final expiryDate = DateTime.parse(extractedUserData["exiryDate"]);
+   // print(expiryDate.isBefore(DateTime.now()));
     if (expiryDate.isBefore(DateTime.now())) {
       return false;
     }
