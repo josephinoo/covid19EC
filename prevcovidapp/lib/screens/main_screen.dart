@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prevcovidapp/screens/informe_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/user.dart';
 
@@ -8,12 +9,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  
   var _isLoading = true;
   @override
   Widget build(BuildContext context) {
     final userInfo = Provider.of<User>(context, listen: false);
 
-    print(userInfo);
     final mq = MediaQuery.of(context);
     return Scaffold(
       body: FutureBuilder(
@@ -51,9 +52,11 @@ class _MainScreenState extends State<MainScreen> {
                     width: mq.size.width*0.65,
                     height: mq.size.height*0.3,
                   ),
-                  _builtButtons("Informacion Persona", mq.size),
-                  _builtButtons("Informe de datos diarios", mq.size),
-                  _builtButtons("Evolucion de los sintomas", mq.size),
+                  _builtButtons("Informacion Persona", mq.size,null),
+                  _builtButtons("Informe de datos diarios", mq.size,(){
+                    Navigator.of(context).pushNamed(InformeScreen.routeName);
+                  }),
+                  _builtButtons("Evolucion de los sintomas", mq.size,null),
                   
 
                 ],
@@ -65,9 +68,10 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _builtButtons(String texto, Size s){
+  Widget _builtButtons(String texto, Size s,Function function){
 
     return  InkWell(
+      onTap: function,
       child: Container(
         alignment: Alignment.center,
       width: s.width*0.7,

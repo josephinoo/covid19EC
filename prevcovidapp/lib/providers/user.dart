@@ -14,6 +14,9 @@ class User with ChangeNotifier {
   DateTime _fechaContagio;
   final mapa;
   User(this.mapa);
+  String get localId {
+    return _localId;
+  }
 
   Future<void> obtenerDatos() async {
     //print(mapa as Map<String,String>);
@@ -31,7 +34,7 @@ class User with ChangeNotifier {
     _lugarContagio = datos['lugarContagio'];
     _sexo = datos['sexo'];
     _tlfn = datos['telefono'];
-    _nombre=datos['nombre'];
+    _nombre = datos['nombre'];
 
     _tlfnEmergencia = datos['telefonoEmergencia'];
     _fechaContagio = DateTime.parse(datos['fechaContagio']);
@@ -45,11 +48,12 @@ class User with ChangeNotifier {
         _lugarContagio == null &&
         _sexo == null &&
         _tlfn == null &&
-        _tlfnEmergencia == null&&
-        _altura==null&&_nombre==null;
-      
+        _tlfnEmergencia == null &&
+        _altura == null &&
+        _nombre == null;
   }
-  String get nombre{
+
+  String get nombre {
     return _nombre;
   }
 }

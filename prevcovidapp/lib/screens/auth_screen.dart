@@ -157,5 +157,6 @@ class _AuthCardState extends State<AuthCard> {
     setState(() {
       _isLoading = false;
     });
+    //Navigator.of(context).pop();
   }
 }
