@@ -48,7 +48,7 @@ class _AuthCardState extends State<AuthCard> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   var _authMode = AuthMode.Login;
   Map<String, String> _authdata = {'email': '', 'password': ''};
-  var _isLoading = false;
+  var _isLoading = true;
   final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {

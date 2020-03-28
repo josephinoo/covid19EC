@@ -47,6 +47,8 @@ flutter:
   assets:
     - assets/images/preview-ministeriodesaludpublica.png
     - assets/images/Salud_ec_gob.png
+    - assets/images/logo.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
