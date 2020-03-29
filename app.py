@@ -1,8 +1,4 @@
 from flask import Flask,render_template,request,redirect,url_for,flash,session,Response,jsonify
-from flaskext.mysql import MySQL
-import numpy as np
-import io
-import random
 from firebase import firebase
 import time
 firebase=firebase.FirebaseApplication("https://covid19ec-2d508.firebaseio.com/",None)
