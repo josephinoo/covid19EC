@@ -7,7 +7,6 @@ import 'package:prevcovidapp/screens/signup_screen.dart';
 import './screens/auth_screen.dart';
 import 'package:provider/provider.dart';
 import './screens/informe_screen.dart';
-
 void main() {
   runApp(MyApp());
 }

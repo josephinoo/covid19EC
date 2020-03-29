@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/user.dart';
+import 'package:intl/intl.dart';
+
 class InformacionPersonalScreen extends StatelessWidget {
   static const routeName = '/informacionScreen';
   @override
@@ -29,8 +31,8 @@ class InformacionPersonalScreen extends StatelessWidget {
                 Divider(indent: 5),
                 _buildListTitle("Lugar de Contagio", user.lugarContagio),
                 Divider(indent: 5),
-                _buildListTitle(
-                    "Fecha de Contagio", user.fechaContagio.toString()),
+                _buildListTitle("Fecha de Contagio",
+                    DateFormat.yMd().format(user.fechaContagio)),
                 Divider(indent: 5),
                 _buildListTitle(" Altura", user.altura),
                 Divider(indent: 5),
