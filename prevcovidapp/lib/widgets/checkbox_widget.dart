@@ -23,6 +23,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
         child: Column(
           children: <Widget>[
             CheckboxListTile(
+              activeColor: Colors.blue,
               value: _bandera,
               onChanged: (val) {
                 setState(
@@ -86,7 +87,7 @@ class _SiderWidgetState extends State<SliderWidget> {
               min: 1,
               max: 3,
               divisions: 2,
-              activeColor: Colors.green,
+              activeColor: Colors.blue,
               inactiveColor: Colors.grey,
               // label: '${valueHolder.round()}',
               onChanged: widget.bandera

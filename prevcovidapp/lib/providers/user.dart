@@ -18,6 +18,22 @@ class User with ChangeNotifier {
     return _localId;
   }
 
+  DateTime get fechaContagio {
+    return _fechaContagio;
+  }
+
+String get altura{
+  return _altura;
+}
+String get tlfn{
+  return _tlfn;
+}
+String get sexo{
+  return _sexo;
+}
+String get lugarContagio{
+  return _lugarContagio;
+}
   Future<void> obtenerDatos() async {
     //print(mapa as Map<String,String>);
     if ((mapa as Map<String, String>).isEmpty) return;

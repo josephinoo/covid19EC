@@ -23,6 +23,7 @@ dependencies:
   shared_preferences: ^0.5.6+3
   http: ^0.12.0+4
   fluttertoast: ^4.0.1
+  intl: ^0.16.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -32,6 +33,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.4
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "/prevcovidapp/assets/images/logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,6 +56,7 @@ flutter:
     - assets/images/preview-ministeriodesaludpublica.png
     - assets/images/Salud_ec_gob.png
     - assets/images/logo.png
+    - assets/images/quarantine.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

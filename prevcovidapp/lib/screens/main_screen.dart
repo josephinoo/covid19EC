@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prevcovidapp/screens/informacion_screen.dart';
 import 'package:prevcovidapp/screens/informe_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/user.dart';
@@ -9,7 +10,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  
   var _isLoading = true;
   @override
   Widget build(BuildContext context) {
@@ -33,13 +33,18 @@ class _MainScreenState extends State<MainScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: Colors.redAccent),
+                      ),
+                    ),
                     margin: EdgeInsets.only(top: 20, left: 10, right: 10),
                     width: mq.size.width * 0.8,
                     height: mq.size.height * 0.1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Hola " + userInfo.nombre),
+                        Text("Hola " + userInfo.nombre,style: TextStyle(fontSize: 25),),
                         IconButton(icon: Icon(Icons.mail), onPressed: () {})
                       ],
                     ),
@@ -49,16 +54,25 @@ class _MainScreenState extends State<MainScreen> {
                       "assets/images/logo.png",
                       fit: BoxFit.contain,
                     ),
-                    width: mq.size.width*0.65,
-                    height: mq.size.height*0.3,
+                    width: mq.size.width * 0.65,
+                    height: mq.size.height * 0.3,
                   ),
-                  _builtButtons("Informacion Persona", mq.size,null),
-                  _builtButtons("Informe de datos diarios", mq.size,(){
+                  _builtButtons("Informacion Personal", mq.size, () {
+                    Navigator.of(context)
+                        .pushNamed(InformacionPersonalScreen.routeName);
+                  }),
+                  _builtButtons("Informe de datos diarios", mq.size, () {
                     Navigator.of(context).pushNamed(InformeScreen.routeName);
                   }),
-                  _builtButtons("Evolucion de los sintomas", mq.size,null),
-                  
-
+                  _builtButtons("Evolucion de los sintomas", mq.size, () {}),
+                  Container(
+                    width: mq.size.width * 0.6,
+                    height: mq.size.height * 0.05,
+                    child: Image.asset(
+                      "assets/images/Salud_ec_gob.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ],
               ),
             );
@@ -68,15 +82,13 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _builtButtons(String texto, Size s,Function function){
-
-    return  InkWell(
-      onTap: function,
-      child: Container(
-        alignment: Alignment.center,
-      width: s.width*0.7,
-      height: s.height*0.08,
-        child: Text(texto),
+  Widget _builtButtons(String texto, Size s, Function function) {
+    return Container(
+      width: s.width * 0.8,
+      child: FlatButton(
+        color: Colors.blue,
+        onPressed: function,
+        child: Text(texto,style: TextStyle(color: Colors.white,fontSize: 18),),
       ),
     );
   }

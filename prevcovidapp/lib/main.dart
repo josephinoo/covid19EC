@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prevcovidapp/providers/auth.dart';
 import 'package:prevcovidapp/providers/user.dart';
+import 'package:prevcovidapp/screens/informacion_screen.dart';
 import 'package:prevcovidapp/screens/main_screen.dart';
 import 'package:prevcovidapp/screens/signup_screen.dart';
 import './screens/auth_screen.dart';
 import 'package:provider/provider.dart';
 import './screens/informe_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProxyProvider<Auth, User>(
           create: (_) => null,
-          update: (_, auth, user) => User(auth.isAuth ? {'userId':auth.userId,'token':auth.token} : Map<String,String>()),
+          update: (_, auth, user) => User(auth.isAuth
+              ? {'userId': auth.userId, 'token': auth.token}
+              : Map<String, String>()),
         )
       ],
       child: Consumer<Auth>(
@@ -45,7 +49,9 @@ class MyApp extends StatelessWidget {
                           : AuthScreen()),
           routes: {
             SignUpScreen.routeName: (ctx) => SignUpScreen(),
-            InformeScreen.routeName:(ctx)=>InformeScreen(),
+            InformeScreen.routeName: (ctx) => InformeScreen(),
+            InformacionPersonalScreen.routeName: (ctx) =>
+                InformacionPersonalScreen(),
           },
         ),
       ),

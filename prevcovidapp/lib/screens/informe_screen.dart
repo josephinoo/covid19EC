@@ -37,13 +37,31 @@ class _InformeScreenState extends State<InformeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Colors.redAccent),
+                  ),
+                ),
+                margin: EdgeInsets.only(top: 20, left: 10, right: 10),
+                width: mq.size.width * 0.8,
+                height: mq.size.height * 0.07,
+                child: Text(
+                  "Informe Diario",
+                  style: TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               _buildText("Temperatura", "Grados Centigrados", mq.size,
                   controllerGrados),
               SizedBox(height: 10),
               _buildText("Ritmo Cardiaco", "Latidos por minuto", mq.size,
                   controllerLatXMin),
               SizedBox(height: 15),
-              Text("Sintomas: "),
+              Text(
+                "Sintomas: ",
+                style: TextStyle(fontSize: 18),
+              ),
               SizedBox(height: 10),
               widgetTos,
               SizedBox(height: 10),
@@ -51,7 +69,10 @@ class _InformeScreenState extends State<InformeScreen> {
               SizedBox(height: 10),
               widgetDolor,
               SizedBox(height: 10),
-              FlatButton(
+              Container(
+                width: mq.size.width*0.4,
+                child: FlatButton(
+                  color: Colors.blue,
                   onPressed: () {
                     if (controllerLatXMin.text.isEmpty ||
                         controllerLatXMin.text.isEmpty) {
@@ -90,7 +111,12 @@ class _InformeScreenState extends State<InformeScreen> {
                       );
                     }
                   },
-                  child: Text("Enviar"))
+                  child: Text(
+                    "Enviar",
+                    style: TextStyle(fontSize: 18,color: Colors.white),
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -179,16 +205,20 @@ class _InformeScreenState extends State<InformeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Text(texto + " :"),
+          Text(
+            texto + " :",
+            style: TextStyle(fontSize: 18),
+          ),
           Container(
-            width: size.width * 0.5,
+            width: size.width * 0.4,
             height: size.height * 0.1,
             child: TextField(
               controller: controller,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: label,
-              ),
+                  labelText: label,
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red))),
             ),
           ),
         ],
