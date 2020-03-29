@@ -139,30 +139,11 @@ Se muestra la página de inicio, los médicos podrán ingresar datos del pacient
 <!-- GETTING STARTED -->
 ## Funcionamiento
 En esta sección se presentara el funcionamiento de la  aplicación móvil y web ,se va redireccionar  a un video de YouTube
+<center>
 
-```sh
-Para ver los videos , lo pueden hacer dando clic sobre la imagen
-```
-#### App movil
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=vIJJLXPvGEU&feature=youtu.be">
-    <img src="https://i9.ytimg.com/vi/vIJJLXPvGEU/mq2.jpg?sqp=CKza-PMF&rs=AOn4CLBOzIJzxK6QJCoZ25dRzg2Er0aFaA" alt="Logo" width="200" height="100">
-     
-  </a>
- </p>
- 
+https://youtu.be/y3e5NijyqoQ
 
-
-#### Web
-<p align="center">
-  <a href="https://youtu.be/AHAdI4GSfUw">
-    <img src="https://i9.ytimg.com/vi/AHAdI4GSfUw/mq2.jpg?sqp=CPT4-PMF&rs=AOn4CLA3M_KZ385oTdyO-cZ5BjxIdaemoA" alt="Logo" width="200" height="100">
-    
-  </a>
- </p>
- 
-
-
+</center>
 
 
 
