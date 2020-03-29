@@ -146,7 +146,24 @@ https://youtu.be/y3e5NijyqoQ
 </center>
 
 
-
+## Instalación
+Se necesitara estas 3 librerias:
+Python-Firebase
+```sh
+pip3 install python-firebase
+```
+Flask
+```sh
+pip3 install Flask
+```
+Request
+```sh
+pip3 install request
+```
+Para la ejecucion del la web, como esta trabajadno localmente solo ejecuta este comando :
+```sh
+python3 app.py
+```
 <!-- LICENSE -->
 ## License
 
