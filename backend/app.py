@@ -139,7 +139,9 @@ def analisis(id):
 
     return render_template('analisis.html',paciente=id,values=values, labels=labels, 
     legend=legend,nombre=date[0][1],estado=date[0][-1],recetas=datosRecetasId)
-
+@app.route('/conferencia/<id>')
+def conferencia(id):
+    return render_template('conferencia.html',paciente=id)
 @app.route('/delete/<id>' )
 def deletePaciente(id):
     flash('Contacto Eliminado')
@@ -194,4 +196,4 @@ def dashboard():
 
 if __name__=='__main__':
     app.secret_key = 'super secret key'
-    app.run(host='0.0.0.0',port=3000, debug=True)
+    app.run(host='127.0.0.1',port=8000, debug=True)

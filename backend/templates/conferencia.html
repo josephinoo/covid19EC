@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.js"
+  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+  crossorigin="anonymous"></script>
+ 
+  <script>
+      
+
+      $(document).ready(function(){
+        const domain = 'meet.jit.si';
+    const options = {
+    roomName: {{paciente}},
+    width: 700,
+    height: 700,
+    parentNode: document.querySelector('#meet'),
+    interfaceConfigOverwrite: {
+                    filmStripOnly: false,
+                }
+
+            };
+
+    const api = new JitsiMeetExternalAPI(domain, options);   
+    JitsiMeetJS.createLocalTracks().then(onLocalTracks); 
+      
+    });
+   
+
+
+  </script>
+</head>
+<body>
+    <center>
+    <h1>Conferencia Medica</h1>
+</center>
+    <center>
+        <div id="meet">
+           
+        </div>
+    </center>
+
+</body>
+</html>
+{% endblock %}

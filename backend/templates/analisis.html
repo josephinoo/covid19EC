@@ -24,7 +24,7 @@
  
    <script>
      var XData= [{% for item in labels %}
-                   "{{item}}",
+                   {{item}},
                   {% endfor %}]
 ;
      var YData = [{% for item in values %}
